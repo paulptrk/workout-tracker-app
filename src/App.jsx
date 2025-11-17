@@ -1,5 +1,6 @@
 import RoutinesScreen from "./components/screens/routines-screen";
 import RoutineDetailsScreen from "./components/screens/routine-details-screen";
+import RoutineProgressScreen from "./components/screens/routine-progress-screen";
 import { useState } from "react";
 import { mockRoutines } from "./data/mockRoutines";
 
@@ -12,9 +13,16 @@ function App() {
     setCurrentScreen("routine-details");
   }
 
+  function handleStartWorkout() {
+    setCurrentScreen("routine-progress");
+  }
+
   function handleNavigateBack() {
     if (currentScreen === "routine-details") {
       setCurrentScreen("routines");
+    }
+    if (currentScreen === "routine-progress") {
+      setCurrentScreen("routine-details");
     }
   }
 
@@ -27,7 +35,10 @@ function App() {
         />
       )}
       {currentScreen === "routine-details" && selectedRoutineId && (
-        <RoutineDetailsScreen routineId={selectedRoutineId} onBack={handleNavigateBack} />
+        <RoutineDetailsScreen routineId={selectedRoutineId} onBack={handleNavigateBack} onStartWorkout={handleStartWorkout} />
+      )}
+      {currentScreen === "routine-progress" && (
+        <RoutineProgressScreen routineId={selectedRoutineId} onBack={handleNavigateBack} />
       )}
     </div>
   );

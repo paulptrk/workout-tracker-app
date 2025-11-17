@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { mockRoutines } from "@/data/mockRoutines";
 import { Play } from 'lucide-react';
 
-export default function RoutineDetailsScreen({ routineId, onBack }) {
+export default function RoutineDetailsScreen({ routineId, onBack, onStartWorkout }) {
   const routine = mockRoutines.find((routine) => routine.id === routineId);
   console.log(routine);
   return (
@@ -35,7 +35,7 @@ export default function RoutineDetailsScreen({ routineId, onBack }) {
             </Card>
           ))}
         </div>
-        <Button className="m-6 p-6 w-full"><Play /> Start Workout</Button>
+        <Button className="m-6 p-6 w-full" onClick={onStartWorkout}><Play /> Start Workout</Button>
       </div>
     </>
   );
