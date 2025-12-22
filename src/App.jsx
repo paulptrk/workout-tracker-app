@@ -26,6 +26,8 @@ function App() {
     }
   }
 
+  const selectedRoutine = mockRoutines.find((r) => r.id === selectedRoutineId);
+
   return (
     <div className="mx-auto">
       {currentScreen === "routines" && (
@@ -34,11 +36,11 @@ function App() {
           onNavigateToDetails={handleNavigateToDetails}
         />
       )}
-      {currentScreen === "routine-details" && selectedRoutineId && (
-        <RoutineDetailsScreen routineId={selectedRoutineId} onBack={handleNavigateBack} onStartWorkout={handleStartWorkout} />
+      {currentScreen === "routine-details" && selectedRoutine && (
+        <RoutineDetailsScreen routine={selectedRoutine} onBack={handleNavigateBack} onStartWorkout={handleStartWorkout} />
       )}
-      {currentScreen === "routine-progress" && (
-        <RoutineProgressScreen routineId={selectedRoutineId} onBack={handleNavigateBack} />
+      {currentScreen === "routine-progress" && selectedRoutine && (
+        <RoutineProgressScreen routine={selectedRoutine} onBack={handleNavigateBack} />
       )}
     </div>
   );

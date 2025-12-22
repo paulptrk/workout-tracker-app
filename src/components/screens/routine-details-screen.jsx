@@ -2,12 +2,9 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/ui/Header";
 import { Separator } from "@/components/ui/separator";
 import { Card } from "@/components/ui/card";
-import { mockRoutines } from "@/data/mockRoutines";
 import { Play } from 'lucide-react';
 
-export default function RoutineDetailsScreen({ routineId, onBack, onStartWorkout }) {
-  const routine = mockRoutines.find((routine) => routine.id === routineId);
-  console.log(routine);
+export default function RoutineDetailsScreen({ routine, onBack, onStartWorkout }) {
   return (
     <>
       <Header

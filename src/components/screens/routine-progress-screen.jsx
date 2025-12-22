@@ -2,10 +2,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/ui/Header";
 import { Separator } from "@/components/ui/separator";
-import { mockRoutines } from "@/data/mockRoutines";
 
-export default function RoutineProgressScreen({ routineId, onBack }) {
-    const routine = mockRoutines.find((routine) => routine.id === routineId);
+export default function RoutineProgressScreen({ routine, onBack }) {
     return (
         <>
             <Header
